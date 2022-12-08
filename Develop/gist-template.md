@@ -4,7 +4,17 @@ In this gist, I will describe how regular expressions, or a regex, can be used t
 
 ## Summary
 
-/^#?([a-f0-9]{6}|[a-f0-9]{3})$/
+`/^#?([a-f0-9]{6}|[a-f0-9]{3})$/`
+
+This is the regex that we will be unwrapping together. This will find a color by it's hex values. Some examples of hex values are:  
+- `#ff0000` is Red ![#ff0000](https://placehold.co/15x15/ff0000/ff0000.png)  
+- `#0000ff` is Blue ![#0000ff](https://placehold.co/15x15/0000ff/0000ff.png)   
+- `#ffff00` is Yellow ![#ffff00](https://placehold.co/15x15/ffff00/ffff00.png) 
+
+
+This group of characters that looks like the aftermath of smashing a keyboard is looking for for these values. A group of letters from a to z and numbers from 0 to 9, in sets of 6 or 3, starting with `#`. 
+
+Let's see how.
 
 
 ## Table of Contents
@@ -20,25 +30,25 @@ In this gist, I will describe how regular expressions, or a regex, can be used t
 
 ## Regex Components
 
-A regex is delivered to the system so long as it's wrapped in a forward slash (/). Like any coding language, regex has its own form of the user communicating with the system. Lets take a look the ones used in this regex:
+A regex is delivered to the system so long as it's wrapped in forward slashes `/`. Like any coding language, regex has its own form of the user communicating with the system. However, the best part of a regex is that it can be used within any programming language. Lets take a look the ones used in this regex:
 
 ### Anchors
 
-The anchors in regex are ^ and $.
+The anchors in regex are `^` and `$`. These are used to specify, in this case, a specific beginning and a not necessarily specific end.
 
-Notice that in the example regex that after the first forward slash, there is a carat (^) right before a hash symbol (#). This means that the value that we are lookng for has to start with a hash symbol. 
+Notice that in the example regex that after the first forward slash, there is a carat `^` right before a hash symbol `#`. This means that the value that we are looking for must start with a hash symbol, which is perfect since thats what hex values that we are searching for begin with. The `#` could be swapped out with any character or string depending on what you're looking for, but keep in mind that regex searches are case-sensitive.
 
 ### Quantifiers
 
-The quantifiers for this regex are ?, as well as {6} and {3} that are separated by [The OR Operator](#the-or-operator) (|). This means that with this expression we are looking for:
-    ? - what matches the pattern zero or more times
-    {6} - Matching the pattern 6 times
-    | - [Or](#the-or-operator)
-    {3} matching the pattern 3 times
+The quantifiers for this regex are `?`, as well as `{6}` and `{3}` that are separated by [The OR Operator](#the-or-operator) `|`. This means that with this expression we are looking for:
+    `?` - what matches the pattern zero or more times
+    `{6}` - Matching the pattern 6 times
+    `|` - [Or](#the-or-operator)
+    `{3}` matching the pattern 3 times
 
 ### Grouping Constructs
 
-A grouping construct is what is wrapped by parentheses () 
+A grouping construct is what is wrapped by parentheses `()` within the regex.
 
 ### Bracket Expressions
 
@@ -46,7 +56,7 @@ A grouping construct is what is wrapped by parentheses ()
 
 ### The OR Operator
 
-The OR Operator in regex is represented by a vertical line (|)
+The OR Operator in regex is represented by a vertical line `|`
 
 ### Flags
 
